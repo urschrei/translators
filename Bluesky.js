@@ -9,7 +9,7 @@
 	"inRepository": true,
 	"translatorType": 4,
 	"browserSupport": "gcsibv",
-	"lastUpdated": "2025-01-15 17:54:04"
+	"lastUpdated": "2025-01-15 19:04:01"
 }
 
 /*
@@ -82,7 +82,8 @@ async function scrapeAPI(doc, url) {
 		}
 		item.forumTitle = "Bluesky";
 		item.type = "Post";
-		item.url = url;
+		const transformedUrl = url.replace(/profile\/.*?\/post/, `profile/${post.author.did}/post`);
+		item.url = transformedUrl;
 		item.date = post.record.createdAt;
 		// Add author information
 		if (post.author) {
@@ -144,7 +145,7 @@ var testCases = [
 				"extra": "Author Handle: watershedlab.bsky.social\nDID: did:plc:ufufhaxc74cfl7fpjccykkyh\nLikes: 8\nReposts: 0\nQuotes: 0",
 				"forumTitle": "Bluesky",
 				"postType": "Post",
-				"url": "https://bsky.app/profile/watershedlab.bsky.social/post/3lcl3glmdx226",
+				"url": "https://bsky.app/profile/did:plc:ufufhaxc74cfl7fpjccykkyh/post/3lcl3glmdx226",
 				"attachments": [
 					{
 						"title": "Snapshot",
